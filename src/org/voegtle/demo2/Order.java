@@ -74,7 +74,10 @@ public class Order {
    *
    * @param pricePerItem float der zu setzen Preis
    */
-  public void setPricePerItem(float pricePerItem) {
+  public void setPricePerItem(float pricePerItem) throws IllegalArgumentException {
+    if (pricePerItem < 0.0) {
+      throw new IllegalArgumentException("Negativer Preis. Bist Du da sicher?");
+    }
     this.pricePerItem = pricePerItem;
   }
 
@@ -131,6 +134,7 @@ public class Order {
 
   /**
    * Anscheinend ist es guter Stil hashCode zu überschreiben, damit unser Objekt gut in Maps abgelegt werden kann
+   * oder so.
    *
    * @return int der Hashcode der Bestellung
    */
