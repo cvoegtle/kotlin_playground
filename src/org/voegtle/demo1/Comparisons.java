@@ -19,9 +19,10 @@ public class Comparisons {
 
     int int128 = 128;
     System.out.println("a128 == int128 ist " + (a128 == int128));
+    System.out.println("Objects.equals(a128, int128) ist " + Objects.equals(a128, int128));
 
     try {
-      System.out.println("integerNull == int128 ist " + (integerNull == int128));
+      System.out.println(" int128 == integerNull ist " + (int128 == integerNull ));
     } catch (Exception ignore) {}
 
     String strA = "Hallo";
