@@ -32,4 +32,12 @@ fun main(args: Array<String>) {
   for ((item, _, _, sum) in orders) {
     println("Die $item-Bestellung kostet $sum")
   }
+
+  orders.forEach {
+    when (it) {
+      Order("Pizza", 5.5F, 1), order3 -> println("found $it")
+      order2 -> println("found ${it.item}")
+      else -> println("found nothing important")
+    }
+  }
 }

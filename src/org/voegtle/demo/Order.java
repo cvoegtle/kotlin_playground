@@ -1,4 +1,4 @@
-package org.voegtle.demo1;
+package org.voegtle.demo;
 
 public class Order {
   private String item;

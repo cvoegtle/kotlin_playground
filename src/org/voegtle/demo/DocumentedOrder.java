@@ -1,4 +1,4 @@
-package org.voegtle.demo2;
+package org.voegtle.demo;
 
 
 /**
@@ -8,7 +8,7 @@ package org.voegtle.demo2;
  * @author Christian Vögtle
  * @since 16.6.2017
  */
-public class Order {
+public class DocumentedOrder {
   private String item;
   private float pricePerItem;
   private int quantity;
@@ -19,7 +19,7 @@ public class Order {
    * @param item         das gewählte Element von der Speisekarte
    * @param pricePerItem der Preis inklusive evenutell gewährter Rabatte, allen Steuern und Servicegebühr
    */
-  public Order(String item, float pricePerItem) {
+  public DocumentedOrder(String item, float pricePerItem) {
     this(item, pricePerItem, 1);
   }
 
@@ -31,15 +31,15 @@ public class Order {
    * @param pricePerItem der Preis inklusive evenutell gewährter Rabatte, allen Steuern und Servicegebühr
    * @param quantity     die Anzahl der gewählten Elemente von der Speisekarte
    */
-  public Order(String item, float pricePerItem, int quantity) {
+  public DocumentedOrder(String item, float pricePerItem, int quantity) {
     this.item = item;
     this.pricePerItem = pricePerItem;
     this.quantity = quantity;
   }
 
   public static void main(String args[]) {
-    Order ersteBestellung = new Order("Pizza Tonno", 7);
-    Order zweiteBestellung = new Order("Pizza Tonno", 7);
+    DocumentedOrder ersteBestellung = new DocumentedOrder("Pizza Tonno", 7);
+    DocumentedOrder zweiteBestellung = new DocumentedOrder("Pizza Tonno", 7);
 
     System.out.println(ersteBestellung + " == " + zweiteBestellung + " ist " + (ersteBestellung.equals(zweiteBestellung)));
   }
@@ -123,13 +123,13 @@ public class Order {
   @Override
   public boolean equals(Object o) {
     if (this == o) return true;
-    if (!(o instanceof Order)) return false;
+    if (!(o instanceof DocumentedOrder)) return false;
 
-    Order order = (Order) o;
+    DocumentedOrder documentedOrder = (DocumentedOrder) o;
 
-    if (Float.compare(order.pricePerItem, pricePerItem) != 0) return false;
-    if (quantity != order.quantity) return false;
-    return item != null ? item.equals(order.item) : order.item == null;
+    if (Float.compare(documentedOrder.pricePerItem, pricePerItem) != 0) return false;
+    if (quantity != documentedOrder.quantity) return false;
+    return item != null ? item.equals(documentedOrder.item) : documentedOrder.item == null;
   }
 
   /**

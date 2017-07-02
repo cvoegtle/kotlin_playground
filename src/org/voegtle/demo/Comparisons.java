@@ -1,4 +1,4 @@
-package org.voegtle.demo1;
+package org.voegtle.demo;
 
 import java.util.Objects;
 
