@@ -1,8 +1,7 @@
 package org.voegtle.demo;
 
-
 /**
- * Diese Klasse repräsentiert eine Bestellung in einem Restaurant wie einer Pizzeria. Ggf. könnte man die Klasse
+ * Diese Klasse repräsentiert eine Bestellung in einem Restaurant wie z.B. einer Pizzeria. Ggf. könnte man die Klasse
  * auch für einen Bestellservice wie Paderbringdienst verwenden.
  *
  * @author Christian Vögtle
@@ -22,7 +21,6 @@ public class DocumentedOrder {
   public DocumentedOrder(String item, double pricePerItem) {
     this(item, pricePerItem, 1);
   }
-
 
   /**
    * Konstruktor für eine Bestellung mit variabler Anzahl
@@ -142,13 +140,10 @@ public class DocumentedOrder {
         ')';
   }
 
-
   public static void main(String args[]) {
     DocumentedOrder ersteBestellung = new DocumentedOrder("Pizza Tonno", 7);
     DocumentedOrder zweiteBestellung = new DocumentedOrder("Pizza Tonno", 7);
 
-    System.out.println(ersteBestellung + " == " + zweiteBestellung + " ist " + (ersteBestellung.equals(zweiteBestellung)));
+    System.out.println(ersteBestellung + " == " + zweiteBestellung + " ist " + (ersteBestellung == zweiteBestellung));
   }
-
-
 }

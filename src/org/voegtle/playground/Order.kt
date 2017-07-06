@@ -41,8 +41,8 @@ fun main(args: Array<String>) {
 
   orders.forEach {
     when (it) {
-      Order("Pizza", 5.5, 1), order3 -> println("found $it")
-      order2 -> println("found ${it.item}")
+      Order("Pizza", 5.5, 1), order2 -> println("found $it")
+      in orders -> println("found at last ${it.item} ")
       else -> println("found nothing important")
     }
   }
