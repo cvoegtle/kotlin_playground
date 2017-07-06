@@ -10,7 +10,7 @@ package org.voegtle.demo;
  */
 public class DocumentedOrder {
   private String item;
-  private float pricePerItem;
+  private double pricePerItem;
   private int quantity;
 
   /**
@@ -19,7 +19,7 @@ public class DocumentedOrder {
    * @param item         das gewählte Element von der Speisekarte
    * @param pricePerItem der Preis inklusive evenutell gewährter Rabatte, allen Steuern und Servicegebühr
    */
-  public DocumentedOrder(String item, float pricePerItem) {
+  public DocumentedOrder(String item, double pricePerItem) {
     this(item, pricePerItem, 1);
   }
 
@@ -31,17 +31,10 @@ public class DocumentedOrder {
    * @param pricePerItem der Preis inklusive evenutell gewährter Rabatte, allen Steuern und Servicegebühr
    * @param quantity     die Anzahl der gewählten Elemente von der Speisekarte
    */
-  public DocumentedOrder(String item, float pricePerItem, int quantity) {
+  public DocumentedOrder(String item, double pricePerItem, int quantity) {
     this.item = item;
     this.pricePerItem = pricePerItem;
     this.quantity = quantity;
-  }
-
-  public static void main(String args[]) {
-    DocumentedOrder ersteBestellung = new DocumentedOrder("Pizza Tonno", 7);
-    DocumentedOrder zweiteBestellung = new DocumentedOrder("Pizza Tonno", 7);
-
-    System.out.println(ersteBestellung + " == " + zweiteBestellung + " ist " + (ersteBestellung.equals(zweiteBestellung)));
   }
 
   /**
@@ -63,18 +56,18 @@ public class DocumentedOrder {
   /**
    * den Preis pro Element abfragen
    *
-   * @return float der Preis des gewählten Elements
+   * @return double der Preis des gewählten Elements
    */
-  public float getPricePerItem() {
+  public double getPricePerItem() {
     return pricePerItem;
   }
 
   /**
    * den Preis eines Elements setzen
    *
-   * @param pricePerItem float der zu setzen Preis
+   * @param pricePerItem double der zu setzen Preis
    */
-  public void setPricePerItem(float pricePerItem) throws IllegalArgumentException {
+  public void setPricePerItem(double pricePerItem) throws IllegalArgumentException {
     if (pricePerItem < 0.0) {
       throw new IllegalArgumentException("Negativer Preis. Bist Du da sicher?");
     }
@@ -100,20 +93,6 @@ public class DocumentedOrder {
   }
 
   /**
-   * die Bestellung als Text darstellen
-   *
-   * @return String die Bestellung als Text
-   */
-  @Override
-  public String toString() {
-    return "Order(" +
-        "item='" + item + '\'' +
-        ", pricePerItem=" + pricePerItem +
-        ", quantity=" + quantity +
-        ')';
-  }
-
-  /**
    * Vergleicht die Bestellung mit anderen Objekten
    *
    * @param o das Vergleichsobjekt
@@ -127,7 +106,7 @@ public class DocumentedOrder {
 
     DocumentedOrder documentedOrder = (DocumentedOrder) o;
 
-    if (Float.compare(documentedOrder.pricePerItem, pricePerItem) != 0) return false;
+    if (Double.compare(documentedOrder.pricePerItem, pricePerItem) != 0) return false;
     if (quantity != documentedOrder.quantity) return false;
     return item != null ? item.equals(documentedOrder.item) : documentedOrder.item == null;
   }
@@ -140,9 +119,36 @@ public class DocumentedOrder {
    */
   @Override
   public int hashCode() {
-    int result = item != null ? item.hashCode() : 0;
-    result = 31 * result + (pricePerItem != +0.0f ? Float.floatToIntBits(pricePerItem) : 0);
+    int result;
+    long temp;
+    result = item != null ? item.hashCode() : 0;
+    temp = Double.doubleToLongBits(pricePerItem);
+    result = 31 * result + (int) (temp ^ (temp >>> 32));
     result = 31 * result + quantity;
     return result;
   }
+
+  /**
+   * die Bestellung als Text darstellen
+   *
+   * @return String die Bestellung als Text
+   */
+  @Override
+  public String toString() {
+    return "Order(" +
+        "item='" + item + '\'' +
+        ", pricePerItem=" + pricePerItem +
+        ", quantity=" + quantity +
+        ')';
+  }
+
+
+  public static void main(String args[]) {
+    DocumentedOrder ersteBestellung = new DocumentedOrder("Pizza Tonno", 7);
+    DocumentedOrder zweiteBestellung = new DocumentedOrder("Pizza Tonno", 7);
+
+    System.out.println(ersteBestellung + " == " + zweiteBestellung + " ist " + (ersteBestellung.equals(zweiteBestellung)));
+  }
+
+
 }

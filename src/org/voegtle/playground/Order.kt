@@ -1,9 +1,11 @@
 package org.voegtle.playground
 
-data class Order(val item: String, val pricePerItem: Float, val quantity: Int = 1) {
-  val sum: Float = pricePerItem * quantity
+import java.math.BigDecimal
 
-  operator fun component4(): Float {
+data class Order(val item: String, val pricePerItem: Double, val quantity: Int = 1) {
+  val sum: Double = pricePerItem * quantity
+
+  operator fun component4(): Double {
     return sum
   }
   operator fun plus(order: Order): Order {
@@ -13,8 +15,12 @@ data class Order(val item: String, val pricePerItem: Float, val quantity: Int = 
   }
 }
 
+fun Double.bd(): BigDecimal {
+  return BigDecimal(this)
+}
+
 fun main(args: Array<String>) {
-  val order1 = Order("Pizza", 5.5F, 1)
+  val order1 = Order("Pizza", 5.5, 1)
   val order2 = order1.copy(quantity = 2, item = "Spaghetti")
   val order3 = order1 + order2
   println(order3)
@@ -35,7 +41,7 @@ fun main(args: Array<String>) {
 
   orders.forEach {
     when (it) {
-      Order("Pizza", 5.5F, 1), order3 -> println("found $it")
+      Order("Pizza", 5.5, 1), order3 -> println("found $it")
       order2 -> println("found ${it.item}")
       else -> println("found nothing important")
     }
