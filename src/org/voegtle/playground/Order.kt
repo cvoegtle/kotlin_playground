@@ -8,6 +8,7 @@ data class Order(val item: String, val pricePerItem: Double, val quantity: Int =
   operator fun component4(): Double {
     return sum
   }
+
   operator fun plus(order: Order): Order {
     return Order(item = "$item + ${order.item}",
         pricePerItem = (pricePerItem + order.pricePerItem) / 2,
