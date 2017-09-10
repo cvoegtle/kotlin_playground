@@ -13,15 +13,18 @@ public class Comparisons {
     System.out.println("a128 == b128 ist " + (a128 == b128));
     System.out.println("a128 equals b128 ist " + (a128.equals(b128)));
 
-    Integer integerNull = null;
-    System.out.println("integerNull equals b128 ist " + (integerNull != null && integerNull.equals(b128)));
-    System.out.println("Objects.equals(integerNull, b128) ist " + Objects.equals(integerNull, b128)); // Java 7
-
     int int128 = 128;
     System.out.println("a128 == int128 ist " + (a128 == int128));
+
+    Integer integerNull = null;
+    System.out.println(" int128 == integerNull ist " + (int128 == integerNull ));
     System.out.println("Objects.equals(a128, int128) ist " + Objects.equals(a128, int128));
 
-    System.out.println(" int128 == integerNull ist " + (int128 == integerNull ));
+    System.out.println("integerNull equals b128 ist "
+        + (integerNull != null && integerNull.equals(b128)));
+
+    System.out.println("Objects.equals(integerNull, b128) ist "
+        + Objects.equals(integerNull, b128)); // Java 7
 
     String strA = "Hallo";
     String strB = "Hallo";
