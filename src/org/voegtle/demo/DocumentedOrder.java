@@ -63,7 +63,7 @@ public class DocumentedOrder {
   /**
    * den Preis eines Elements setzen
    *
-   * @param pricePerItem double der zu setzen Preis
+   * @param pricePerItem double der zu setzende Preis
    */
   public void setPricePerItem(double pricePerItem) throws IllegalArgumentException {
     if (pricePerItem < 0.0) {
