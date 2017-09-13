@@ -16,10 +16,6 @@ data class Order(val item: String, val pricePerItem: Double, val quantity: Int =
   }
 }
 
-fun Double.bd(): BigDecimal {
-  return BigDecimal(this)
-}
-
 fun main(args: Array<String>) {
   val order1 = Order("Pizza", 5.5, 1)
   val order2 = order1.copy(quantity = 2, item = "Spaghetti")
