@@ -37,5 +37,6 @@ public class Comparisons {
     Language l1 = Language.Kotlin;
     Language l2 = Language.Kotlin;
     System.out.println( "l1 == l2 ist " + (l1 == l2));
+    System.out.println( "l1.equals(l2) ist " + (l1.equals(l2)));
   }
 }
