@@ -21,11 +21,6 @@ fun main(args: Array<String>) {
 
 
 
-
-
-
-
-
 // Bonus-Feature
 fun Double.bd(): BigDecimal {
   return BigDecimal(this)

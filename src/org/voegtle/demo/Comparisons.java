@@ -3,6 +3,10 @@ package org.voegtle.demo;
 import java.util.Objects;
 
 public class Comparisons {
+  enum Language {
+    Java, Kotlin, Typescript, Javascript
+  }
+
   public static void main(String[] args) {
     Integer a127 = 127;
     Integer b127 = 127;
@@ -29,5 +33,9 @@ public class Comparisons {
     String strA = "Hallo";
     String strB = "Hallo";
     System.out.println("strA == strB ist " + (strA == strB));
+
+    Language l1 = Language.Kotlin;
+    Language l2 = Language.Kotlin;
+    System.out.println( "l1 == l2 ist " + (l1 == l2));
   }
 }

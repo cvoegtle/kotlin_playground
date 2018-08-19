@@ -1,7 +1,5 @@
 package org.voegtle.playground
 
-import java.math.BigDecimal
-
 data class Order(val item: String, val pricePerItem: Double, val quantity: Int = 1) {
   val sum: Double = pricePerItem * quantity
 
@@ -11,8 +9,8 @@ data class Order(val item: String, val pricePerItem: Double, val quantity: Int =
 
   operator fun plus(order: Order): Order {
     return Order(item = "$item + ${order.item}",
-        pricePerItem = (pricePerItem + order.pricePerItem) / 2,
-        quantity = quantity + order.quantity)
+                 pricePerItem = (pricePerItem + order.pricePerItem) / 2,
+                 quantity = quantity + order.quantity)
   }
 }
 
